@@ -42,30 +42,31 @@ they have found that Ann’s laptop has the MAC address 00:21:70:4D:4F:AE
 In order to emulate the network of the problem we used GNS3. GNS3 can be used in order to emulating the complex network. Virtual devices and actual devices can be set by this software\cite{amyot2014system}.
 
 
-\subsection{topology}
-In our Backbone model, we used two Cisco c7200 Routers(R1 and R2) and seven virtual machines. Secondly,in this topology, four Cisco Ethernet Switches have been designed to connect the virtual machines to routers.
+\subsection{Topology}
 
-
-
-
-
-
-
-
-
-
-Users:
+The emulated topology consists:
 
 \begin{itemize}
-	\item Virtual Machine Linux * 7
-	\item Microsoft Loopback Ethernet * 2
-	\item WireShark to capture the packets between links. 
-	\item Wireshark Pcap (protocol Hierarchy).
+	
+	\item Two Cisco c7200 Routers (R1 and R2)
+	\item Five Cisco Ethernet Switches (SW1 to SW5)
+	\item Seven Virtual Machines (PC1 to PC7)
+	\item Two Microsoft Loopback Adaptor 
+\end{itemize}
+
+The PCs are connected to the switches which are connected to one of the Reouters fast ethernet Ports:
+
+\begin{itemize}
+	
+	\item Sw1 is configured on R1 interface f1/0 and 192.168.30.0/24
+	\item Sw2 is configured on R1 interface f2/0 and 172.30.1.0/24
+	\item Sw4 is configured on R1 interface f3/0 and 1923.164.137.0/24
+	\item Sw3 is configured on R2 interface f1/0 and 192.122.52.0/24
+	\item Sw5 is configured on R2 interface f2/0 and 190.168.136.0.24/24
 \end{itemize}
 
 
-
-
+R1 and R2(Cisco c720 Routers) are connected togather on the fast ethernet port 0:10.30.30.254 and 10.30.30.253 respectively.The R1 is active router for Sw1 ,Sw2 and SW4 and R2 is active Router for S5 and Sw3.
 
 Network Topology:
 
@@ -73,7 +74,7 @@ Network Topology:
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{Topology.jpg}
 	\end{center}
-	\caption{\small  \newline}
+	\caption{\small  Our Simulated Network Topology\newline}
 	\label{fig:Prd}
 \end{figure}
 
