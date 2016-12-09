@@ -1,5 +1,3 @@
-
-#this is a test
 \documentclass{article}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -62,6 +60,24 @@ Users:
 	\item WireShark to capture the packets between links. 
 	\item Wireshark Pcap (protocol Hierarchy).
 \end{itemize}
+
+
+\subsection{Tools Used}
+To conduct the experiment we mainly used two tools interacting together. The first tool we used to setup the network is GNS3 and the second tool we used is Wireshark to analyze the packets captured during normal network communication.
+
+
+\subsubsection{GNS3 (Graphical Network Simulator-3)}
+GNS3 is a network software emulator. It facilitates the simulation of network traffic using real and virtual devices. GNS3 was initially intended to simulate Cisco routers and switches but then it was expanded to support other platforms as well and today it is used emulate various complex networks.  GNS3 Was used in our experiment to setup and emulate network traffic. 
+
+
+We are able to create routers and switches and add different computers on the network. Doing so, we were able to communicate with different computers across different switches \cite{hassine2014toward}.
+
+
+\subsubsection{Wireshark}
+Is a network tool that is used to analyze packets transmitted over a computer network. It is open source and supported across many platforms. The way it operates is very similar to TCPDUMP however it has a graphical user interface to make it easier for the network engineer to troubleshoot the network \cite{orebaugh2006wireshark}.
+
+
+For the sake of our experiment, a capture tool is added between the two routers shown in network topology that captures traffic between two routers. The capture tool capture the network packets being transmitted over the network for wireshark in order for them to be analyzed.
 
 
 
