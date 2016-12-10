@@ -40,19 +40,6 @@ they have found that Ann’s laptop has the MAC address 00:21:70:4D:4F:AE
 In order to emulate the network of the problem we used GNS3. GNS3 can be used in order to emulating the complex network. Virtual devices and actual devices can be set by this software\cite{amyot2014system}.
 
 
-\subsection{Topology}
-
-The emulated topology consists:
-
-\begin{itemize}
-	
-	\item Two Cisco c7200 Routers (R1 and R2)
-	\item Five Cisco Ethernet Switches (SW1 to SW5)
-	\item Seven Virtual Machines (PC1 to PC7)
-	\item Two Microsoft Loopback Adaptor 
-\end{itemize}
-
-The PCs are connected to the switches which are connected to one of the Reouters fast ethernet Ports:
 
 <<<<<<< HEAD
 \subsection{Tools Used}
@@ -74,6 +61,22 @@ For the sake of our experiment, a capture tool is added between the two routers 
 
 
 =======
+
+\subsection{Network Topology}
+
+The emulated topology(Figure.\ref{fig:TPLGY}) consists:
+
+\begin{itemize}
+	
+	\item Two Cisco c7200 Routers (R1 and R2)
+	\item Five Cisco Ethernet Switches (SW1 to SW5)
+	\item Seven Virtual Machines (PC1 to PC7)
+	\item Two Microsoft Loopback Adaptor 
+\end{itemize}
+
+The PCs are connected to the switches which are connected to one of the Reouters fast ethernet Ports:
+
+
 \begin{itemize}
 	
 	\item Sw1 is configured on R1 interface f1/0 and 192.168.30.0/24
@@ -82,40 +85,43 @@ For the sake of our experiment, a capture tool is added between the two routers 
 	\item Sw3 is configured on R2 interface f1/0 and 192.122.52.0/24
 	\item Sw5 is configured on R2 interface f2/0 and 190.168.136.0.24/24
 \end{itemize}
->>>>>>> ee54c043e1d36030ef7e36c13cabde449eaa8c35
 
+R1 and R2(Cisco c720 Routers) are connected together on the fast Ethernet port 0:10.30.30.254 and 10.30.30.253 respectively.The R1 is active router for Sw1 ,Sw2 and SW4 and R2 is active Router for S5 and Sw3. Additionally, the virtual machines use Dynamic Host Configuration Protocol(DHCP) in order get IP address. This Protocol can be used in order to set the an IP host and its related configuration information.
 
-R1 and R2(Cisco c720 Routers) are connected togather on the fast ethernet port 0:10.30.30.254 and 10.30.30.253 respectively.The R1 is active router for Sw1 ,Sw2 and SW4 and R2 is active Router for S5 and Sw3.
-
-Network Topology:
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.6\textwidth]{Topology.jpg}
 	\end{center}
 	\caption{\small  Our Simulated Network Topology\newline}
-	\label{fig:Prd}
+	\label{fig:TPLGY}
 \end{figure}
+\subsection{Km-test Loopback}
 
-As you see in this picture you can see that we have 7 virtual pcs and they use DHCP server in order to get IP addresses.\\
-How to Install Km-Test Loopback: 
+Microsoft Loopback Adapter has some capabilities that can be used in our model. Firstly, it can be used for virtual network protecting by using Internet Connection Firewall. Secondly, Designer also can use it to share the files independently and design host-to-guest networking. Lastly, providing the Network Address Translation (NAT)  and sharing connection to Internet are other capabilities of this software.\\
+We installed  MS loopback as an additional Network adapter on the computer. In following, we described how we installed Microsoft Loopbaack Adapter:
+In the Device Manager panel click on Action and choose the Add legacy Hardware. Now the installation page is opened (Figure.\ref{fig:KMINS}) . For more information about installation you can check this website:\\
+	\url{https://technet.microsoft.com/en-us/library/cc708322(v=ws.10).aspx}
+
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.48\textwidth]{LoopBackIns1.jpg}
 	
-	\caption{\small  \newline}
-	\label{fig:Prd}
+	\caption{\small Microsoft KM-test Loopback Adapter Installation\newline}
+	\label{fig:KMINS}
 \end{figure}
 
-From device manager we install MS loopback as an additional Network adapter on the computer. Next step is add hardware wizard. Go to install the hardware that I manually select from a list (advance). Under section of network adapters we select KM-Test loopback. After the installation the device is ready to use after one restart of the computer (necessary).
+
+NOTE: just note that you choose the Microsoft KM-TEST Loopback Adapter on the Network Adapters section (Figure.\ref{fig:KMINS2}) .
+
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.48\textwidth]{LoopBackIns2.jpg}
 	\end{center}
-	\caption{\small  \newline}
-	\label{fig:Prd}
+	\caption{\small Network Adapters section \newline}
+	\label{fig:KMINS2}
 \end{figure}
 
 
