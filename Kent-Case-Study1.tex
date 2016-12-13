@@ -213,15 +213,53 @@ When computers are communicating over the network, we used Wireshark to capcture
 
 \subsection{Protocol Hierarchy}
 Explain here….
-
-
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.48\textwidth]{Hierarchyst.jpg}
 	\end{center}
-	\caption{\small  \newline}
+	\caption{\small  sss\newline}
 	\label{fig:Prd}
 \end{figure}
+
+
+\subsection{TCPFlow - Data stream analysis}
+Here we examine Wireshark capturing result and analyze the TCP flow. As you can see from figure 12, the conversation between the computers on the network is about Grammarly that is originated from 54.221.52.117 to destination 137.207.64.60. For the output we used TCP flow with the appropriate port setting and reconstructed the data streams as shown in figure 13 with plain paragraphs that are readable. 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{TCPFLOW1.png}
+	\end{center}
+	\caption{TCPFlow}
+	\label{fig:Prd}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{TCPFLOW2.png}
+	\end{center}
+	\caption{TCPFlow Data reconstructed}
+	\label{fig:Prd}
+\end{figure}
+
+\subsection{Finding \textit{{Ann}}}
+We used NetworkMiner in order to conduct this step. Networkminer is a network forensic tool that can be used as a network sniffer with a purpose to detect operating systems, open ports and hostnames without putting any traffic on the network. The main purpose of NetworkMiner is to collect data about the hosts on the network. NetworkMiner is capable of parsing files and certificates from the PCAP file \cite{crenshaw2008osfuscate}.
+
+The PCAP file we obtained was opened in NetworkMiner, then the information was automatically filled in NetworkMiner that were extracted from the PCAP file. As you can see from Figure 15, "Hosts" tab lists all the IP address of the host transmitted IP traffic in the packet capture. 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{FINDINGANN1.png}
+	\end{center}
+	\caption{List of devices discovered on the network by NetworkMiner. We opened the PCAP file in network to interpret the results. }
+	\label{fig:Prd}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{FINDINGANN2.png}
+	\end{center}
+	\caption{"Files" tab of the requests being made from the source computer to the network along with the port being used and the network protocol that are embedded inside the captured packet.}
+	\label{fig:Prd}
+\end{figure}
+
 
 \bibliographystyle{ieeetr}
 \bibliography{Kent-Case-Study1}
