@@ -162,19 +162,19 @@ We configure the switches and grant access to all the ports for future computers
 	\label{fig:Prd}
 \end{figure}
 
-R1 – R2 configurations:\\
-Interface Configuration:\\
-We start each router and go to enable mode of each router and go to terminal mode:
+\subsection{Routers configurations}
+
+Figure.\ref{fig:Termconf} shows how an IP can be configured on a Cisco router interface. The first step, the router enabled to turn on privileged commands (If the password has been set for the router after entering enable the command line asked you to enter the password). Secondly, The second command (configure terminal) is used to enter to global configuration mode. Then you need to enter to the fast Ethernet Interface configuration mode, and the IP address and Gateway will be written in the next step. By default, the interface is "Administratively Down" means that the port is closed. So lastly, we used "no shutdown" command to enable it.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.48\textwidth]{Terminalconf.jpg}
 	\end{center}
-	\caption{\small  \newline}
-	\label{fig:Prd}
+	\caption{\small Enter An IP to the Cisco Router \newline}
+	\label{fig:Termconf}
 \end{figure}
 
-We configure each terminals.(explain the code)\\
+We configure each Router Interface.\\
 
 Router RIP Configuration:
 
