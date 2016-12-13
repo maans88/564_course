@@ -185,7 +185,7 @@ We configure each Router Interface.\\
 \end{figure}
 \subsection{Routing information Protocol (Rip)} Fig 8 displays the routing Information Protocol. The Rip uses hop counts as a metric to determine the best path to a network and also prevents routing loops. The "router configuration terminal" command is first entered to start the rip process, then the "router rip" command is entered in the console, The "network *.*.*.*.*.*.*.*.*.*" command is used to assign networks that would participate in the rip process. The "show ip rip database" command displays all the networks in the RIP database. The "show ip protocols" displays the global configurations of the Rip process which include timers, network etc.
 
-Router 1 Configuration: (do the exact thing for the ot
+Router 1 Configuration: (do the exact thing for the other router
 
 \begin{figure}[H]
 	\begin{center}
@@ -208,12 +208,12 @@ When computers are communicating over the network, we used Wireshark to capcture
 \end{figure}
 
 \subsection{Protocol Hierarchy}
-Explain here….this is seyi part
+Fig 11. displays the protocol heirachy of the captured packets. It is a tree of all protocols in the capture, with each row containing the statistical values of one protocol.The percant packets and bytes columns also contain bar graphs. Multiple protocols can be found in a single packet and it can also contain the same protocol more than once. This data can be copied using the copy button as CSV or YAML.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.48\textwidth]{Hierarchyst.jpg}
 	\end{center}
-	\caption{\small  sss\newline}
+	\caption{\small  Protocol Heirachy statistics window\newline}
 	\label{fig:Prd}
 \end{figure}
 
