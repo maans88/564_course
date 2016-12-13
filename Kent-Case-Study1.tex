@@ -273,6 +273,132 @@ This section begins here
 	\caption{test1.}
 	\label{fig:Prd}
 \end{figure}
+-----------------------------------------------------------------------------------------------
+
+\title {second case study}
+
+
+\section{Problem statement}
+
+
+\section{Snort Installation}
+We installed snort tool and configured it on our wireless module in order to connect to the network
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{SnortIns.jpg}
+	\end{center}
+	\caption{Snort Installation}
+	\label{fig:SnortIns}
+\end{figure}
+
+
+Configuration of rules:
+We specified to the each port in this section for the snort to listen through the network, in this case we set snort to listen to any port through the network.
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Ipconf.jpg}
+	\end{center}
+	\caption{Configured Ip addresses}
+	\label{fig:Ip Addresses configuration}
+\end{figure}
+
+
+
+Rules and alert:
+
+We programm alert for the snort to do alert num 1**1-3 through the connections generated through the each specific protocols. Bare that in mind for the training purpose of this case study we listen to each protocol. The configuration happened in local.rules in /etc folder.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Localnet.jpg}
+	\end{center}
+	\caption{Configured local rules over the network}
+	\label{fig:Localnet}
+\end{figure}
+
+
+
+
+
+
+
+Setting interface 2 (wireless module of the pc connected to the network)
+Interface number 2 is our wireless module. We initialize the snort to listen to all the specific ports that you can see in the picture and ip addresses in order to see if someone is trying to connect to our network and see if there are any attacks are happening on our network and ports.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{portip.jpg}
+	\end{center}
+	\caption{Configured 1 - on ports and ip addresses}
+	\label{fig:Ipport }
+\end{figure}
+
+
+Start Capturing:
+By running the command:
+Snort -i 2 -c \url{c:\snort\lib\snort.conf -A console}
+
+\begin{itemize}
+	
+	\item -i select the interface * is the number (in this case is  2)
+	\item -c which allow us to choose which configuration file we want to use in this case is given the address in the next section
+	\item C:\ (we gave the address of our configuration in this part which is located in ‘lib’ folder
+	\item -A console we command the snort to run the command and show us the results of our command in the same CMD.exe as given below. 
+\end{itemize}
+
+
+
+ 
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Conf4.jpg}
+	\end{center}
+	\caption{configured 4 - Captured packets over the network}
+	\label{fig:Conf4}
+\end{figure}
+
+
+This figure show the alerts that we configured which were given in last section with *1-3 numbers for each network protocols.
+Results:
+After we finished our packet capturing snort via command CRTL+C, snort will give you a very specific result of what had happened in the CMD which is shown below.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Res1.jpg}
+	\end{center}
+	\caption{HTTP inspect results over the given rules}
+	\label{fig:Res1}
+\end{figure}
+
+Other results:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Res2.jpg}
+	\end{center}
+	\caption{Results over capturing 1.2}
+	\label{fig:Res2}
+\end{figure}
+
+
+Other results:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.48\textwidth]{Res3.jpg}
+	\end{center}
+	\caption{Saved Results of over the time of capturing the packets}
+	\label{fig:Res3}
+\end{figure}
+
+At the end snort will give us how many packets were captured, how many of them were the get methods over the network (use the picture in order to expand the report my friends)
+
 
 \bibliographystyle{ieeetr}
 \bibliography{Kent-Case-Study1}
