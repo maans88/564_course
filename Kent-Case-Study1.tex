@@ -14,27 +14,33 @@
 
 \maketitle
 \section{Case Study: Ann’s Rendezvous}
-\subsection{Problem description}
+\subsection{Problem Statement}
+\textbf{The Case:} \textit{After being released on bail, Ann Dercover disappears! Fortunately, investigators were carefully monitoring her network activity before she skipped town. ‘‘We believe Ann may have communicated with her secret lover, Mr. X, before she left,’’ says the police chief. ‘‘The packet capture may contain clues to her whereabouts.’’} \cite{davidoff2012network}
+
+\subsection{Tasks Required for to conduct the case study}
 In this assignment we aim to analyze the packet capture and also collect the information from a suspected persons activities.
  
-The following questions will help guide your investigation:
-• Provide any online aliases or addresses and corresponding account credentials that
+\begin{itemize}
+\item Provide any online aliases or addresses and corresponding account credentials that
 may be used by the suspect under investigation.
-• Who did Ann communicate with? Provide a list of email addresses and any other
+\item Who did Ann communicate with? Provide a list of email addresses and any other
 identifying information.
-• Extract any transcripts of Ann’s conversations and present them to investigators.
-• If Ann transferred or received any files of interest, recover them.
-• Are there any indications of Ann’s physical whereabouts? If so, provide supporting
-evidence.
-Network:
-• Internal network: 192.168.30.0/24
-• DMZ: 10.30.30.0/24
-• The “Internet”: 172.30.1.0/24 [Note that for the purposes of this case study, we are
+\item Extract any transcripts of Ann’s conversations and present them to investigators.
+\item If Ann transferred or received any files of interest, recover them.
+\item Are there any indications of Ann’s physical whereabouts? If so, provide supporting evidence.
+\end{itemize}
+The Network setup:
+\begin{itemize}
+\item Internal network: 192.168.30.0/24
+\item DMZ: 10.30.30.0/24
+\item The “Internet”: 172.30.1.0/24 [Note that for the purposes of this case study, we are
 treating the 172.30.1.0/24 subnet as “the Internet.” In real life, this is a reserved nonreturnable
 IP address space.]
 Evidence: Investigators provide you with a packet capture from Ann’s home network,
 “evidence-packet-analysis.pcap.” They also inform you that in the course of their monitoring,
-they have found that Ann’s laptop has the MAC address 00:21:70:4D:4F:AE
+they have found that Ann’s laptop has the MAC address 00:21:70:4D:4F:AE 
+\end{itemize}
+
 \subsection{Experiment}
 \subsubsection{simulation}
 In order to emulate the network of the problem we used GNS3. GNS3 can be used in order to emulating the complex network. Virtual devices and actual devices can be set by this software\cite{amyot2014system}.
@@ -269,14 +275,14 @@ The PCAP file we obtained was opened in NetworkMiner, then the information was a
 \end{figure}
 
 \subsection{File Carving}
-This section begins here
+When we capture the packet sent, our goal to extract information from the packet simply by exporting in Wireshark as HTTP stream as shown in Figure \ref{fig:carv1}. The information extracted from hexadecimal data locaed in the packets are hostname, Content type, Size and filename. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.6
 \textwidth]{FILECARVING1.png}
 	\end{center}
-	\caption{test1.}
-	\label{fig:Prd}
+	\caption{Exporting as HTTP Stream}
+	\label{fig:carv1}
 \end{figure}
 
 \begin{figure}[H]
@@ -284,16 +290,28 @@ This section begins here
 		\includegraphics[width=0.6
 \textwidth]{FILECARVING2.png}
 	\end{center}
-	\caption{test1.}
-	\label{fig:Prd}
+	\caption{Extracted information from Hexadecimal data in HTTP Stream, for example hostname, content type, size and file name.}
+	\label{fig:carv2}
 \end{figure}
 
 
 \section{Case Study: Interoptic Saves the Planet}
-
-
 \subsection{Problem statement}
+\textbf{The Case:} \textit{In his quest to save the planet, Inter0ptic has started a credit card number recycling program. ‘‘Do you have a database filled with credit card numbers, just sitting there collecting dust? Put that data to good use!’’ he writes on his web site. ‘‘Recycle your company’s used credit card numbers! Send us your database, and we’ll send YOU a check.’’ For good measure, Inter0ptic decides to add some bells and whistles to the site, too . . .} \cite{davidoff2012network}\newline
 
+\textbf{Meanwhile} . . . \textit{MacDaddy Payment Processor has deployed Snort NIDS sensors to detect an array of anomalous events, both inbound and outbound. An alert was logged at 08:01:45 on 5/18/11 concerning an inbound chunk of executable code sent to port 80/tcp for inside host 192.168.1.169 from external host 172.16.16.218. Here is the alert:}\newline
+
+[**] [1:10000648:2] SHELLCODE x86 NOOP [**]\newline
+[ Classification : Executable code was detected ] [ Priority : 1]\newline
+05/18 -08:01:45.591840 172.16.16.218:80 -> 192.168.1.169:2493\newline
+TCP TTL :63 TOS :0 x0 ID :53309 IpLen :20 DgmLen :1127 DF\newline
+*** AP *** Seq : 0 x1B2C3517 Ack : 0 x9F9E0666 Win : 0 x1920 TcpLen : 20\newline
+
+
+
+
+\subsection{Tasks Required for to conduct the case study}
+We are supposed to determine whether the alert is true or false by examining the alert’s data to understand the logistical context. Also, compare the alert to the rule, in order to better understand what it has been built to detect. Followed by retrieve the packet that triggered the alert and compare the rule to the packet to understand why it fired. Finally, – Construct a timeline of alerted activities involving the potentially malicious out-side host and construct a timeline of alerted activities involving the target.
 
 
 
@@ -430,6 +448,7 @@ Fig 24. THE action stats show the number of alerts and 2630 alert's were raised.
 Fig 25. shows the packet sniffer mode which contains captured packets of all protocols. It shows the total number of packet's received by the network, analyzed shows the packets tested by snort, dropped are the packets stopped by snort to avoid them being a threat to the network, and the outstanding packets are yet to be analyzed. 
 \newpage
 \tableofcontents
+\newpage
 \bibliographystyle{ieeetr}
 
 \bibliography{Kent-Case-Study1}
